@@ -15,20 +15,21 @@ import StableSelect from "./components/StableSelect";
 
 export default function Usuarios({  }) {
     const [buttonPopup, setButtonPopup] = useState(false);
+    const [buttonPopup2, setButtonPopup2] = useState(false);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [rut, setRut] = useState();
     const [nombre, setNombre] = useState('');
     const [edad, setEdad] = useState();
     const [direccion, setDireccion] = useState('');
-    const [idRol, setIdRol] = useState();
+    const [idRol, setIdRol] = useState(1);
     const user = useUser();
     const supabaseClient = useSupabaseClient();
     const [data, setData] = useState();
     const [edita, setEdita] = useState(-1);
     //datos para editar
     const [nombreEditar, setNombreEditar] = useState("");
-    const [edadEditar, setEdadEditar] = useState("");
+    const [edadEditar, setEdadEditar] = useState();
     const [dirEditar, setDirEditar] = useState("");
     const [activaEditar, setActivaEditar] = useState("");
     const [rolEditar, setRolEditar] = useState("");
@@ -54,7 +55,7 @@ export default function Usuarios({  }) {
             setCarreraEstudiantes(carreraEstudiantes);
             /* console.log(carreraEstudiantes); */
         }catch(err){
-            alert(error.error_description);
+            alert(err.error_description);
         }})()
 
     },[]); 
@@ -77,7 +78,7 @@ export default function Usuarios({  }) {
             const { data: carreras } = await supabase.from('carrera').select("*").order('id_carrera', { ascending: true });
             setCarreras(carreras);
         }catch(err){
-            alert(error.error_description);
+            alert("xddd"+err.error_description);
         }})()
 
     },[usuarios]);
@@ -185,15 +186,15 @@ export default function Usuarios({  }) {
                                 <div class="col">
                                     <div className="mb-3">
                                         <label className="form-label">Correo</label>
-                                        <input className="form-control" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                                        <input className="form-control" placeholder="Ingrese su correo electrónico." type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                                     </div>
                                     <div className="mb-3">
                                         <label className="form-label">Rut</label>
-                                        <input className="form-control" type="text" value={rut} onChange={(e) => setRut(e.target.value)} />
+                                        <input className="form-control" type="text" placeholder="Ingrese su RUT sin guión." value={rut} onChange={(e) => setRut(e.target.value)} />
                                     </div>
                                     <div className="mb-3">
                                         <label className="form-label">Edad</label>
-                                        <input className="form-control" type="number" value={edad} onChange={(e) => setEdad(e.target.value)} />
+                                        <input className="form-control" type="number" placeholder="Ingrese su edad." value={edad} onChange={(e) => setEdad(e.target.value)} />
                                     </div>
                                     
                                     <div className='container'>
@@ -228,15 +229,15 @@ export default function Usuarios({  }) {
                                 <div class="col">
                                     <div class="mb-3">
                                         <label className="form-label">Contraseña</label>
-                                        <input className="form-control" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                                        <input className="form-control" type="password" placeholder="Ingrese su contraseña." value={password} onChange={(e) => setPassword(e.target.value)} />
                                     </div>
                                     <div class="mb-3">
                                         <label className="form-label">Nombre</label>
-                                        <input className="form-control" type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} />
+                                        <input className="form-control" type="text" value={nombre} placeholder="Ingrese  nombre." onChange={(e) => setNombre(e.target.value)} />
                                     </div>
                                     <div class="mb-3">
                                         <label className="form-label">Dirección</label>
-                                        <input className="form-control" type="text" value={direccion} onChange={(e) => setDireccion(e.target.value)} />
+                                        <input className="form-control" type="text" value={direccion} placeholder="Ingrese una dirección válida." onChange={(e) => setDireccion(e.target.value)} />
                                     </div>
                                     {/* si el rol seleccionado no es 1 se muestra */}
                                     {idRol!=1 && <div className="mb-3">
@@ -297,16 +298,19 @@ export default function Usuarios({  }) {
                                         }</td>
                                     {/* <td>{e.esta_activa}</td> */}
                                     <td>{roles[e?.id_rol - 1]?.nombre_rol}</td>
-                                    <td><button style={{ color: "white" }} onClick={() => { edita === -1 ? setEdita(e?.rut) : setEdita(-1) }} class="btn btn-warning">Editar</button></td>
+                                    <td><button style={{ color: "white" }} onClick={() => { edita === -1 ? setEdita(e?.rut) : setEdita(-1);setButtonPopup2(true) }} class="btn btn-warning">Editar</button></td>
                                     <td><button class="btn btn-danger" onClick={() => {mostrarAlerta(e) }}>Borrar</button></td>
-                                    {e?.rut === edita && (<p>
-                                        <form onSubmit={() => editarCuenta(e.id_usuario)}>
-                                            <label>Nombre: </label><input value={nombreEditar} onChange={(e) => setNombreEditar(e.target.value)}></input>
-                                            <label> Edad: </label><input type="number" value={edadEditar} onChange={(e) => setEdadEditar(e.target.value)}></input>
-                                            <label> Dirección: </label><input value={dirEditar} onChange={(e) => setDirEditar(e.target.value)}></input>
-                                            <button type="submit">Cambiar</button>
-                                        </form>
-                                    </p>)}
+                                    {e?.rut === edita && (
+                                    <Popup trigger={buttonPopup2} setTrigger={setButtonPopup2}>
+                                        <div className="container">
+                                            <form onSubmit={() => editarCuenta(e.id_usuario)}>
+                                                <label>Nombre: </label><input value={nombreEditar} onChange={(e) => setNombreEditar(e.target.value)}></input>
+                                                <label> Edad: </label><input type="number" value={edadEditar} onChange={(e) => setEdadEditar(e.target.value)}></input>
+                                                <label> Dirección: </label><input value={dirEditar} onChange={(e) => setDirEditar(e.target.value)}></input>
+                                                <button href="./admin-usuario" type="submit">Cambiar</button>
+                                            </form>
+                                        </div>
+                                    </Popup>)}
                                 </tr>
 
                             )
