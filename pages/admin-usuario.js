@@ -74,6 +74,8 @@ export default function Usuarios({  }) {
             const { data, error } = await supabase.from('profiles').select("*").order('id_usuario', { ascending: true });
             if (error) throw error
             setUsuarios(data)
+            const { data: carreras } = await supabase.from('carrera').select("*").order('id_carrera', { ascending: true });
+            setCarreras(carreras);
         }catch(err){
             alert(error.error_description);
         }})()
@@ -101,7 +103,7 @@ export default function Usuarios({  }) {
             if (error) throw error
             setUsuarios(usuarios=>[...usuarios,data]);
             //recarga la pagina
-            //router.reload();
+            router.reload();
         } catch (err) {
             alert(err.error_description || err.message)
         }
