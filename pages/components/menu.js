@@ -2,12 +2,13 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 //import {supabase} from '../api/index.js'
-import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
+import { useSession, useUser,useSupabaseClient } from "@supabase/auth-helpers-react";
 import swal from "sweetalert";
 
 export default function Menu({ userRole }) {
   const supabaseClient = useSupabaseClient();
   const [roles, setRoles] = useState();
+  const user=useUser();
   const logOut = async (event) => {
     event.preventDefault();
     try {
@@ -112,9 +113,9 @@ export default function Menu({ userRole }) {
                   </Link>
 
                   {/* <Link href='../'></Link> */}
-                  <Link href="../cuenta">
+                  <Link href={"../perfil/"+user?.id}>
                     <a className="nav-link" href="#">
-                      Cuenta
+                      Perfil
                     </a>
                   </Link>
                 </>
@@ -135,9 +136,9 @@ export default function Menu({ userRole }) {
                       General
                     </a>
                   </Link>
-                  <Link href="../cuenta">
+                  <Link href={"../perfil/"+user?.id}>
                     <a className="nav-link" href="#">
-                      Cuenta
+                      Perfil
                     </a>
                   </Link>
                 </>
