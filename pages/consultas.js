@@ -39,7 +39,8 @@ export default function Consultas({}) {
           setCarrera(carrera[0].id_carrera);
           setDirector(carrera[0].carrera.id_director);
           setSecretaria(carrera[0].carrera.id_secretaria);
-          //console.log({"director":director,"secretaria":secretaria});
+
+          console.log({"director":director,"secretaria":secretaria});
           let { data } = await supabaseClient
           .rpc('id');
           console.log(data,"pasó");
