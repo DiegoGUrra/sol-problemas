@@ -7,7 +7,6 @@ import StableSelect from "./components/StableSelect";
 import { useState, useEffect } from "react";
 import Account from "./account";
 import Menu from "./components/menu.js";
-import { supabase } from "./api";
 
 export default function Consultas({}) {
   const user = useUser();
@@ -41,6 +40,9 @@ export default function Consultas({}) {
           setDirector(carrera[0].carrera.id_director);
           setSecretaria(carrera[0].carrera.id_secretaria);
           //console.log({"director":director,"secretaria":secretaria});
+          let { data } = await supabaseClient
+          .rpc('id');
+          console.log(data,"pasó");
       }
     }
     if (user) loadData();
@@ -49,7 +51,7 @@ export default function Consultas({}) {
     
     try {
         if(encargadoAEnviar==='Director'){
-            const { data, error } = await supabase
+            const { data, error } = await supabaseClient
             .rpc('crear_ticket', {
             ticket:{id_rec:director,asunto:asunto}, 
             mensaje:{mensaje:mensaje}
@@ -58,7 +60,7 @@ export default function Consultas({}) {
 
         }
         else{
-            const { data, error } = await supabase
+            const { data, error } = await supabaseClient
             .rpc('crear_ticket', {
                 ticket:{id_rec:secretaria,asunto:asunto}, 
                 mensaje:{mensaje:mensaje}
@@ -67,7 +69,7 @@ export default function Consultas({}) {
         } 
         //const {data,error}= await supabase.from('ticket').insert()
     } catch (error) {
-      alert(err.error_description || err.message);
+      alert(error.error_description || error.message);
     }
   };
 /* 
@@ -121,9 +123,9 @@ export default function Consultas({}) {
               <button className="boton" type='submit'>Enviar Consulta</button>
             </div>
           </form>
-          {console.log({
+          {/* {console.log({
         "mensaje":{id_rec:director,asunto:asunto}, 
-        "ticket":{mensaje:mensaje}})}
+        "ticket":{mensaje:mensaje}})} */}
         </div>
       </>
     </div>
