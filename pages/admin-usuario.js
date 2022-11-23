@@ -78,7 +78,7 @@ export default function Usuarios({  }) {
             const { data: carreras } = await supabase.from('carrera').select("*").order('id_carrera', { ascending: true });
             setCarreras(carreras);
         }catch(err){
-            alert("xddd"+err.error_description);
+           
         }})()
 
     },[usuarios]);
