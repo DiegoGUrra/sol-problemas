@@ -103,9 +103,7 @@ export default function Usuarios({usuarios,roles,carrera,nombres}) {
         <div class="row">
         <div class="col-md-3 border-right mycontent-left">
             
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5"> 
-            //aqui deberia haber imagen pero no carga
-            {/*<img src="../logo_psici.png"/>*/}
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
             <span class="font-weight-bold">NOMBRE</span><span class="text-black-50">edogaru@mail.com.my</span><span> </span></div>
         </div>
         

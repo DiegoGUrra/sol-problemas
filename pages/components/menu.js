@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { useSession, useUser,useSupabaseClient } from "@supabase/auth-helpers-react";
 import swal from "sweetalert";
 
+
 export default function Menu({ userRole }) {
   const supabaseClient = useSupabaseClient();
   const [roles, setRoles] = useState();
@@ -55,8 +56,7 @@ export default function Menu({ userRole }) {
         <div className="container-fluid">
           <a className="navbar-brand" href="/">
             <img
-              src="logo_navbar.png"
-              alt="Logo"
+              src={"/logo_navbar.png"}
               width="30"
               height="30"
               className=" d-inline-block align-text-top"
@@ -106,11 +106,6 @@ export default function Menu({ userRole }) {
                       Consultas
                     </a>
                   </Link>
-                  <Link href="../consultas2">
-                    <a className="nav-link" href="#">
-                      Consultas2
-                    </a>
-                  </Link>
 
                   {/* <Link href='../'></Link> */}
                   <Link href={"../perfil/"+user?.id}>
@@ -121,7 +116,7 @@ export default function Menu({ userRole }) {
                 </>
               ) : (
                 <>
-                  <Link href="../realiza-consulta">
+                  <Link href="../consultas">
                     <a className="nav-link" href="#">
                       Consultas
                     </a>

@@ -97,7 +97,7 @@ export default function Consultas({}) {
         </div> */}
         <div className="padding-selection">
             <p>Asunto: </p>
-            <input type='text' onChange={(e)=>setAsunto(e.target.value)}></input>
+            <input className="form-control" type='text' onChange={(e)=>setAsunto(e.target.value)}></input>
         </div>
         <div className="padding-selection">
           <p>Encargado Consulta: {encargadoAEnviar} </p>
