@@ -12,8 +12,8 @@ export default function Index_menu(){
                     <div className='col-md'>
                         <div className="row justify-content-evenly">
                             <div className='col-lg-10'>
-                                <div className='card'>
-                                    <div className='card card_hover'>
+                                <div className='card card_text'>
+                                    <div className='card card_hover '>
                                         <div className='row g-2'>
                                             <div className='col-1 col-md-5'>
                                             <img class="card-img img-fluid rounded-start" src="../sitio-web.png" alt="Card image cap"/>

@@ -75,7 +75,7 @@ export default function Menu({ userRole }) {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div className="navbar-nav">
+            <div className="navbar-nav " >
               {userRole === 1 ? (
                 <>
                   <Link href="../">

@@ -99,50 +99,52 @@ export default function Usuarios({usuarios,roles,carrera,nombres}) {
   return (
     <div>
     <Menu userRole={data}></Menu>
-        <div className="py-5"></div>
-            <div className="row d-flex justify-content-md-center align-items-center m-0">
-                <div className="col-md-3 border-right mycontent-left">
-                    
-                    <div className="d-flex flex-column align-items-center text-center p-3 py-5">
-                    <img src={"/sample-avatar.jpg"} width="100" height="100"></img>
-                    <span className="font-weight-bold">{usuarios[0].nombre}</span><span class="text-black-50">{usuarios[0].nombre+"@gmail.com"}</span><span> </span></div>
-                </div>
-            
-                <div className="col-md-5 border-right mycontent-right">
-                    <div className='card'>
-                        <div class="card-header">
-                            <h4 className="card-title text-right">Datos de {roles.find((e)=>e.id_roles===usuarios[0].id_rol).nombre_rol}</h4>
-                        </div>
-                        <div class="card-body">
-                            
-                            <p className="card-text">Nombre de usuario: {usuarios[0].nombre}</p>
-                            <p>Rut: {usuarios[0].rut}</p>
-                            <p>Dirección: {usuarios[0].direccion}</p>
-                            <p>Edad: {usuarios[0].edad}</p>
-                            <p>Área: {roles.find((e)=>e.id_roles===usuarios[0].id_rol).nombre_rol}</p>
-                        </div>
+        <div className='background-index p-0 m-0'>
+            <div className="py-5"></div>
+                <div className="row d-flex justify-content-md-center align-items-center m-0">
+                    <div className="col-md-3 border-right mycontent-left">
+                        
+                        <div className="d-flex flex-column align-items-center text-center p-3 py-5">
+                        <img src={"/sample-avatar.jpg"} width="100" height="100"></img>
+                        <span className="font-weight-bold text-white m-1">{usuarios[0].nombre}</span><span class="text-white-50">{usuarios[0].nombre+"@gmail.com"}</span><span> </span></div>
                     </div>
-                <div className="pt-3">
+                
+                    <div className="col-md-5 border-right mycontent-right">
                         <div className='card'>
                             <div class="card-header">
-                                <h4>Datos de mi carrera</h4> 
+                                <h4 className="card-title text-right">Datos de {roles.find((e)=>e.id_roles===usuarios[0].id_rol).nombre_rol}</h4>
                             </div>
                             <div class="card-body">
-                                {usuarios[0]!==1?
-                                    <>
-                                        <div>
-                                            <p>Nombre carrera: {carrera[0].nombre}</p>
-                                            <p>Nombre cirector: {nombres[0]}</p>
-                                            <p>Nombre Secretaria: {nombres[1]}</p>
-                                        </div>
-                                    </>
-                                    :null
-                                }
+                                
+                                <p className="card-text">Nombre de usuario: {usuarios[0].nombre}</p>
+                                <p>Rut: {usuarios[0].rut}</p>
+                                <p>Dirección: {usuarios[0].direccion}</p>
+                                <p>Edad: {usuarios[0].edad}</p>
+                                <p>Área: {roles.find((e)=>e.id_roles===usuarios[0].id_rol).nombre_rol}</p>
                             </div>
                         </div>
-                    
-                    </div>
-                </div>    
+                    <div className="pt-3">
+                            <div className='card'>
+                                <div class="card-header">
+                                    <h4>Datos de mi carrera</h4> 
+                                </div>
+                                <div class="card-body">
+                                    {usuarios[0]!==1?
+                                        <>
+                                            <div>
+                                                <p>Nombre carrera: {carrera[0].nombre}</p>
+                                                <p>Nombre cirector: {nombres[0]}</p>
+                                                <p>Nombre Secretaria: {nombres[1]}</p>
+                                            </div>
+                                        </>
+                                        :null
+                                    }
+                                </div>
+                            </div>
+                        
+                        </div>
+                    </div>    
+                </div>
             </div>
     </div>
   )

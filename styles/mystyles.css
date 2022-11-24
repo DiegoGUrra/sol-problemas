@@ -218,3 +218,43 @@ div.center {
 table  { border-collapse: collapse; width: 100%; }
 th, td { padding: 8px 16px; }
 th     { background:#eee; }
+
+
+
+/*inputconsultas*/
+
+.input-group {
+  position: relative;
+  padding: 1rem;
+}
+.input {
+  padding: 10px;
+  border: #0099cc;
+  border-radius: 4px;
+  font: inherit;
+  color: #0099cc;
+  background-color: transparent;
+  outline: 2px solid #0099cc;
+  width: 100%;
+}
+
+.input-label {
+  position: absolute;
+
+  top: 1rem;
+  left: 1rem;
+  transform: translate(10px, 10px);
+  transition: transform 0.25s;
+}
+
+.input:focus + .input-label,
+.input:valid + .input-label {
+  transform: translate(10px, -14px) scale(0.8);
+  color: #0099cc;
+  padding-inline: 5px;
+  background-color: white;
+}
+
+.input:is(:focus, :valid) {
+  outline-color: #0099cc;
+}

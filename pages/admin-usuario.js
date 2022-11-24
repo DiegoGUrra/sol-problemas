@@ -171,9 +171,9 @@ export default function Usuarios({  }) {
     }
 
     return (
-        <div>
+        <div >
             <Menu userRole={data}></Menu>
-            <div>
+            <div >
                 <div className='text-center pt-5'>
                     <button className="btn btn-dark" onClick={() => setButtonPopup(true)}>Añadir Usuario</button>
                 </div>
@@ -266,59 +266,59 @@ export default function Usuarios({  }) {
             </div>
 
 
+                                                
+                <div class="container tableFixHead table-responsive-sm overflow-y mt-5 p-0">
+                    <table className='table text-center align-items-center table-striped table-bordered mx-auto' >
+                        <thead className="table-primary">
+                            <tr>
+                                <th>RUT</th>
+                                <th>NOMBRE</th>
+                                <th>EDAD</th>
+                                <th>DIRECCION</th>
+                                <th>CARRERA</th>
+                                <th>ROL</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {usuarios.map((e) => {
+                                return (
 
-            <div class="container tableFixHead table-responsive-sm overflow-y mt-5 p-0">
-                <table className='table text-center align-items-center table-striped table-bordered mx-auto' >
-                    <thead className="table-primary">
-                        <tr>
-                            <th>RUT</th>
-                            <th>NOMBRE</th>
-                            <th>EDAD</th>
-                            <th>DIRECCION</th>
-                            <th>CARRERA</th>
-                            <th>ROL</th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {usuarios.map((e) => {
-                            return (
+                                    <tr key={e?.rut}>
+                                        <td>{e?.rut}</td>
+                                        <td>{e?.nombre}</td>
+                                        <td>{e?.edad}</td>
+                                        <td>{e?.direccion}</td>
+                                        <td>{e?.id_rol===4?
+                                            carreras.find((car)=>car.id_carrera===(carreraEstudiantes.find(carEst=>carEst.id_estudiante===e?.id_usuario)?.id_carrera))?.nombre
+                                            :e?.id_rol===3?(carreras.find((car)=>car.id_secretaria===e?.id_usuario)?.nombre)
+                                            :e?.id_rol===2?(carreras.find((car)=>car.id_director===e?.id_usuario)?.nombre)
+                                            :null
+                                            }</td>
+                                        {/* <td>{e.esta_activa}</td> */}
+                                        <td>{roles[e?.id_rol - 1]?.nombre_rol}</td>
+                                        <td><button style={{ color: "white" }} onClick={() => { edita === -1 ? setEdita(e?.rut) : setEdita(-1);setButtonPopup2(true) }} class="btn btn-warning">Editar</button></td>
+                                        <td><button class="btn btn-danger" onClick={() => {mostrarAlerta(e) }}>Borrar</button></td>
+                                        {e?.rut === edita && (
+                                        <Popup trigger={buttonPopup2} setTrigger={setButtonPopup2}>
+                                            <div className="container">
+                                                <form onSubmit={() => editarCuenta(e.id_usuario)}>
+                                                    <label>Nombre: </label><input value={nombreEditar} onChange={(e) => setNombreEditar(e.target.value)}></input>
+                                                    <label> Edad: </label><input type="number" value={edadEditar} onChange={(e) => setEdadEditar(e.target.value)}></input>
+                                                    <label> Dirección: </label><input value={dirEditar} onChange={(e) => setDirEditar(e.target.value)}></input>
+                                                    <button href="./admin-usuario" type="submit">Cambiar</button>
+                                                </form>
+                                            </div>
+                                        </Popup>)}
+                                    </tr>
 
-                                <tr key={e?.rut}>
-                                    <td>{e?.rut}</td>
-                                    <td>{e?.nombre}</td>
-                                    <td>{e?.edad}</td>
-                                    <td>{e?.direccion}</td>
-                                    <td>{e?.id_rol===4?
-                                        carreras.find((car)=>car.id_carrera===(carreraEstudiantes.find(carEst=>carEst.id_estudiante===e?.id_usuario)?.id_carrera))?.nombre
-                                        :e?.id_rol===3?(carreras.find((car)=>car.id_secretaria===e?.id_usuario)?.nombre)
-                                        :e?.id_rol===2?(carreras.find((car)=>car.id_director===e?.id_usuario)?.nombre)
-                                        :null
-                                        }</td>
-                                    {/* <td>{e.esta_activa}</td> */}
-                                    <td>{roles[e?.id_rol - 1]?.nombre_rol}</td>
-                                    <td><button style={{ color: "white" }} onClick={() => { edita === -1 ? setEdita(e?.rut) : setEdita(-1);setButtonPopup2(true) }} class="btn btn-warning">Editar</button></td>
-                                    <td><button class="btn btn-danger" onClick={() => {mostrarAlerta(e) }}>Borrar</button></td>
-                                    {e?.rut === edita && (
-                                    <Popup trigger={buttonPopup2} setTrigger={setButtonPopup2}>
-                                        <div className="container">
-                                            <form onSubmit={() => editarCuenta(e.id_usuario)}>
-                                                <label>Nombre: </label><input value={nombreEditar} onChange={(e) => setNombreEditar(e.target.value)}></input>
-                                                <label> Edad: </label><input type="number" value={edadEditar} onChange={(e) => setEdadEditar(e.target.value)}></input>
-                                                <label> Dirección: </label><input value={dirEditar} onChange={(e) => setDirEditar(e.target.value)}></input>
-                                                <button href="./admin-usuario" type="submit">Cambiar</button>
-                                            </form>
-                                        </div>
-                                    </Popup>)}
-                                </tr>
+                                )
+                            })}
 
-                            )
-                        })}
-
-                    </tbody>
-                </table>
-            </div>
+                        </tbody>
+                    </table>
+                </div>
         </div>
     )
 }
