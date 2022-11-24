@@ -22,6 +22,7 @@ export default function Carrera({carreras}){
         }
         if(user) loadData()
     },[user])
+    
     const handleSubmit=async (event)=>{
         try{
             const {data,error} = await supabaseClient.from('carrera').insert([{nombre:nuevaCarrera}]);
@@ -29,7 +30,7 @@ export default function Carrera({carreras}){
             if (error) throw error
             window.location.reload();
         }catch(err){
-            alert(err.error_description||err.message)
+            //alert(err.error_description||err.message)
         }
     }
     const removeCarrera= async (id)=>{
@@ -42,7 +43,7 @@ export default function Carrera({carreras}){
             window.location.reload();
         }
         catch(err){
-            alert(err.error_description||err.message)
+            //alert(err.error_description||err.message)
         }
         
     }
@@ -58,7 +59,7 @@ export default function Carrera({carreras}){
             window.location.reload();
         }
         catch(err){
-            alert(err.error_description||err.message)
+           // alert(err.error_description||err.message)
         }
     }
 
