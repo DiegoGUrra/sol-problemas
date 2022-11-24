@@ -47,7 +47,7 @@ export default function Index_menu(){
                                                 <div className='card-body d-flex flex-column'>
                                                     <div className='h-100'>
                                                         <h3 className='card-title'>Solicitudes</h3>
-                                                        <p>Ingresando con este link podrás ingreasar a las solicitudes de los alumnos. (Solo subir solicitudes; beta)</p>                                        </div>
+                                                        <p>Ingresando por medio de este link podrás ingresar a las solicitudes de los alumnos. (beta)</p>                                        </div>
                                                     <div>
                                                     <a href='../realiza-consulta' className='btn btn-outline-secondary' target="_blank">Ingresa aqui</a>                                    
                                                     </div>

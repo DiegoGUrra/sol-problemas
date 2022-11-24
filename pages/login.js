@@ -38,7 +38,7 @@ export default function LogIn(){
                 <div className="col-md-4 offset-md-6 py-2 d-flex m-0 pe-0 ps-0 flex-column" >
                     <div className="card bg-primary bg-gradient border-0 rounded-start rounded-0" style={{height: "17.4rem"}}> 
                         <div className="card-body m-0">
-                            <h3 className="ps-4 blue-100 mt-1 mb-1 m-0">Iniciar Sesión</h3>
+                            <h3 className="ps-4 blue-100 mt-1 mb-1 m-0 text-white">Solución problemáticas UCM</h3>
                         </div>
                     </div>   
                 </div>

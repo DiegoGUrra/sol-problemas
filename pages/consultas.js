@@ -111,7 +111,7 @@ export default function Consultas({}) {
             onChange={handleSelectChange}
           />
         </div> */}
-        <div className="input-group">
+        <div className="input-group input-group-2">
           <input
             type="text"
             id="name"
@@ -125,7 +125,7 @@ export default function Consultas({}) {
         </div>
         <div className="padding-selection">
           <p>Encargado Consulta: {encargadoAEnviar} </p>
-          <Select
+          <StableSelect
             theme={(theme) => ({
               ...theme,
               borderRadius: "6px",
