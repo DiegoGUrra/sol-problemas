@@ -62,7 +62,7 @@ export default function Usuarios({usuarios,roles,carrera,nombres}) {
               //recarga la pagina
               router.reload();
         }catch(err){
-            alert(err.error_description||err.message)
+            //alert(err.error_description||err.message)
         }
     }
 

@@ -49,7 +49,7 @@ export default function Index_menu(){
                                                         <h3 className='card-title'>Solicitudes</h3>
                                                         <p>Ingresando por medio de este link podrás ingresar a las solicitudes de los alumnos. (beta)</p>                                        </div>
                                                     <div>
-                                                    <a href='../realiza-consulta' className='btn btn-outline-secondary' target="_blank">Ingresa aqui</a>                                    
+                                                    <a href='../consultas' className='btn btn-outline-secondary' target="_blank">Ingresa aqui</a>                                    
                                                     </div>
                                                 </div>
                                             </div>

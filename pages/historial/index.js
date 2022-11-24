@@ -41,7 +41,7 @@ export default function Historial() {
         }
         console.log(tickets);
       } catch (error) {
-        alert(error.error_description || error.message);
+        //alert(error.error_description || error.message);
       }
     }
     console.log(user, "usuario");
