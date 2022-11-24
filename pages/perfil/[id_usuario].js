@@ -99,12 +99,12 @@ export default function Usuarios({usuarios,roles,carrera,nombres}) {
   return (
     <div>
     <Menu userRole={data}></Menu>
-        <div className="p-3 py-5"></div>
-            <div className="row">
+        <div className="py-5"></div>
+            <div className="row d-flex justify-content-md-center align-items-center m-0">
                 <div className="col-md-3 border-right mycontent-left">
                     
                     <div className="d-flex flex-column align-items-center text-center p-3 py-5">
-                    <img src={"/triangulo.png"}></img>
+                    <img src={"/sample-avatar.jpg"} width="100" height="100"></img>
                     <span className="font-weight-bold">{usuarios[0].nombre}</span><span class="text-black-50">estudiante@gmail.com</span><span> </span></div>
                 </div>
             
@@ -122,17 +122,17 @@ export default function Usuarios({usuarios,roles,carrera,nombres}) {
                             <p>Área: {roles.find((e)=>e.id_roles===usuarios[0].id_rol).nombre_rol}</p>
                         </div>
                     </div>
-                    <div className='mt-2'>
+                <div className="pt-3">
                         <div className='card'>
                             <div class="card-header">
-                                <h4>Datos Carrera</h4> 
+                                <h4>Datos de mi carrera</h4> 
                             </div>
                             <div class="card-body">
                                 {usuarios[0]!==1?
                                     <>
                                         <div>
-                                            <p>Nombre Carrera: {carrera[0].nombre}</p>
-                                            <p>Nombre Director: {nombres[0]}</p>
+                                            <p>Nombre carrera: {carrera[0].nombre}</p>
+                                            <p>Nombre cirector: {nombres[0]}</p>
                                             <p>Nombre Secretaria: {nombres[1]}</p>
                                         </div>
                                     </>
