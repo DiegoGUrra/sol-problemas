@@ -65,24 +65,39 @@ export default function Ticket({mensajes,ticket}) {
       <Menu userRole={rol}></Menu>
       <>
         {initialRenderComplete?
-        <div className="justify-content-center text-center">
-          
-          <h1>{ticket?.asunto}</h1>
-          <hr></hr>
-          {mensajes.map((e)=>{return (
-          <div  className="justify-content-center">
-              <p>
-                  <div>ID usuario: {e.id_usuario}</div> 
-                  <div>Fecha envio: {e.fecha}</div>
-              </p>
-              <p>Mensaje</p>
-              <p>{e?.mensaje}</p>
-              <hr></hr>
-          </div> )})
-          }
+        <div className="row justify-content-center text-center m-0 p-0">
+          <div className="col-5 m-0 p-0">
+            <div className="card mt-5">
+              <div className="card-header">
+                <h4 className="text-secondary">{ticket?.asunto}</h4>
+              </div>
+            </div>
+            <br></br>
+            {mensajes.map((e)=>{return (
+            <>
+            <div className="card justify-content-center ">
+                <div className="card-header">
+                  <p>
+                      <div>ID usuario: {e.id_usuario}</div> 
+                      <div>Fecha envio: {e.fecha.substr(0, 10)} || Hora de envío: {e.fecha.substr(11, 8) + " UTP"+e.fecha.substr(26,26)} </div>
+                  </p>
+                </div>
+                <div className="card-body">
+                  <p className="card-text text-primary">Mensaje</p>
+                  <p className="card-text">{"➣ "+e.mensaje}</p>
+                </div>
+            </div>
+            <br></br>
+            </>
+            
+            )})
+            }
+            
+          </div>
         </div>
         :null}
-        <p className="text-center">Crear mensaje</p>
+        <br></br>
+        <p className="text-center">Redactar un nuevo mensaje:</p>
         <form className="text-center " onSubmit={enviarMensaje}>
             <textarea className="textarea w-50" onChange={(e)=>setMensaje(e.target.value)}></textarea>
             <div>

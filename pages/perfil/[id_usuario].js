@@ -105,7 +105,7 @@ export default function Usuarios({usuarios,roles,carrera,nombres}) {
                     
                     <div className="d-flex flex-column align-items-center text-center p-3 py-5">
                     <img src={"/sample-avatar.jpg"} width="100" height="100"></img>
-                    <span className="font-weight-bold">{usuarios[0].nombre}</span><span class="text-black-50">estudiante@gmail.com</span><span> </span></div>
+                    <span className="font-weight-bold">{usuarios[0].nombre}</span><span class="text-black-50">{usuarios[0].nombre+"@gmail.com"}</span><span> </span></div>
                 </div>
             
                 <div className="col-md-5 border-right mycontent-right">

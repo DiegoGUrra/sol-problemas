@@ -102,9 +102,9 @@ export default function Menu({ userRole }) {
                       Preguntas frecuentes
                     </a>
                   </Link>
-                  <Link href="../consultas">
+                  <Link href="../historial">
                     <a className="nav-link" href="#">
-                      Consultas
+                      Historial
                     </a>
                   </Link>
 
