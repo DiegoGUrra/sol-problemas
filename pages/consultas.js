@@ -70,7 +70,7 @@ export default function Consultas({}) {
         } 
         //const {data,error}= await supabase.from('ticket').insert()
     } catch (error) {
-      alert(error.error_description || error.message);
+      //alert(error.error_description || error.message);
     }
   };
 /* 

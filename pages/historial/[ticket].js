@@ -65,27 +65,32 @@ export default function Ticket({mensajes,ticket}) {
       <Menu userRole={rol}></Menu>
       <>
         {initialRenderComplete?
-        <>
-        
-        <h1>{ticket?.asunto}</h1>
-        <hr></hr>
-        {mensajes.map((e)=>{return (<>
-            <p>
-                <div>ID usuario: {e.id_usuario}</div> 
-                <div>Fecha envio: {e.fecha}</div>
-            </p>
-            <p>Mensaje</p>
-            <p>{e?.mensaje}</p>
-            <hr></hr>
-            </> )})
-        }</>
+        <div className="justify-content-center text-center">
+          
+          <h1>{ticket?.asunto}</h1>
+          <hr></hr>
+          {mensajes.map((e)=>{return (
+          <div  className="justify-content-center">
+              <p>
+                  <div>ID usuario: {e.id_usuario}</div> 
+                  <div>Fecha envio: {e.fecha}</div>
+              </p>
+              <p>Mensaje</p>
+              <p>{e?.mensaje}</p>
+              <hr></hr>
+          </div> )})
+          }
+        </div>
         :null}
-        <p>Crear mensaje</p>
-        <form onSubmit={enviarMensaje}>
-            <textarea onChange={(e)=>setMensaje(e.target.value)}></textarea>
-            <button type="submit">Enviar mensaje</button>
-            
-        </form>   
+        <p className="text-center">Crear mensaje</p>
+        <form className="text-center " onSubmit={enviarMensaje}>
+            <textarea className="textarea w-50" onChange={(e)=>setMensaje(e.target.value)}></textarea>
+            <div>
+              <button className="boton m-2" type="submit">Enviar mensaje</button>
+            </div>
+        </form>
+        
+        
       </>
     </div>
   );

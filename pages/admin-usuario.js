@@ -241,7 +241,7 @@ export default function Usuarios({  }) {
                                     </div>
                                     {/* si el rol seleccionado no es 1 se muestra */}
                                     {idRol!=1 && <div className="mb-3">
-                                        <p>Carrera_ID:</p>
+                                        <p>Carrera:</p>
                                         <div>
                                             <StableSelect
                                                 defaultValue={{ label: "Selecciona una opción", value: "empty" }}

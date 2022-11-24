@@ -57,9 +57,9 @@ export default function Historial() {
   return (
     <div>
       <Menu userRole={rol}></Menu>
-      <>
-        {tickets.map(e=> {return (<Link href={router.pathname+"/"+e.id_ticket}><p>{e.asunto}</p></Link>)})}
-      </>
+      <div className="text-center p-5">
+        {tickets.map(e=> {return (<Link href={router.pathname+"/"+e.id_ticket}><a>{e.asunto}<br></br></a></Link>)})}
+      </div>
     </div>
   );
 }
