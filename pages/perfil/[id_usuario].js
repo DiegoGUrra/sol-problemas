@@ -133,7 +133,7 @@ export default function Usuarios({usuarios,roles,carrera,nombres}) {
                                         <>
                                             <div>
                                                 <p>Nombre carrera: {carrera[0].nombre}</p>
-                                                <p>Nombre cirector: {nombres[0]}</p>
+                                                <p>Nombre director: {nombres[0]}</p>
                                                 <p>Nombre Secretaria: {nombres[1]}</p>
                                             </div>
                                         </>
@@ -190,9 +190,8 @@ export async function getStaticProps({params}){
 
     if(data[0].id_rol!==1){
         const {data: usuario1} = await supabase.from('profiles').select('nombre').eq('id_usuario',carreras[0]?.id_director);
-        nombres.push(usuario1[0].nombre);
         const {data: usuario2} = await supabase.from('profiles').select('nombre').eq('id_usuario',carreras[0]?.id_secretaria);
-        nombres.push(usuario2[0].nombre);
+
 
 
     }
