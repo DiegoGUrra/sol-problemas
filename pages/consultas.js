@@ -111,17 +111,19 @@ export default function Consultas({}) {
             onChange={handleSelectChange}
           />
         </div> */}
-        <div className="input-group input-group-2">
-          <input
-            type="text"
-            id="name"
-            required
-            className="input"
-            onChange={(e) => setAsunto(e.target.value)}
-          ></input>
-          <label for="name" className="input-label">
-            Tema
-          </label>
+        <div className="text-align-center text-center">
+          <div className="input-group-2">
+            <input
+              type="text"
+              id="name"
+              required
+              className="input"
+              onChange={(e) => setAsunto(e.target.value)}
+            ></input>
+            <label for="name" className="input-label">
+              Tema
+            </label>
+          </div>
         </div>
         <div className="padding-selection">
           <p>Encargado Consulta: {encargadoAEnviar} </p>
