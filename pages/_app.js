@@ -8,6 +8,7 @@ import '../styles/mystyles.css';
 //import '../styles/table_responsive.css';
 //import '../styles/table_style.css';
 import '../styles/Index_menu.css';
+import '../styles/chatbox.css';
 
 
 
