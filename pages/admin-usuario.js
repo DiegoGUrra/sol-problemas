@@ -171,9 +171,10 @@ export default function Usuarios({  }) {
     }
 
     return (
-        <div >
+        <div>
             <Menu userRole={data}></Menu>
-            <div >
+        <div className="background-index p-0 m-0">
+            <div>
                 <div className='text-center pt-5'>
                     <button className="btn btn-dark" onClick={() => setButtonPopup(true)}>Añadir Usuario</button>
                 </div>
@@ -265,8 +266,6 @@ export default function Usuarios({  }) {
                 </Popup>
             </div>
 
-
-                                                
                 <div class="container tableFixHead table-responsive-sm overflow-y mt-5 p-0">
                     <table className='table text-center align-items-center table-striped table-bordered mx-auto' >
                         <thead className="table-primary">
@@ -301,6 +300,7 @@ export default function Usuarios({  }) {
                                         <td><button style={{ color: "white" }} onClick={() => { edita === -1 ? setEdita(e?.rut) : setEdita(-1);setButtonPopup2(true) }} class="btn btn-warning">Editar</button></td>
                                         <td><button class="btn btn-danger" onClick={() => {mostrarAlerta(e) }}>Borrar</button></td>
                                         {e?.rut === edita && (
+                                        
                                         <Popup trigger={buttonPopup2} setTrigger={setButtonPopup2}>
                                             <div className="container">
                                                 <form onSubmit={() => editarCuenta(e.id_usuario)}>
@@ -320,6 +320,7 @@ export default function Usuarios({  }) {
                     </table>
                 </div>
         </div>
+    </div>
     )
 }
 

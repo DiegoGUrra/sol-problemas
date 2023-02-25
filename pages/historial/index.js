@@ -53,17 +53,33 @@ export default function Historial() {
   return (
     <div>
       <Menu userRole={rol}></Menu>
-      <div className="text-center p-5">
-        {tickets.map((e) => {
-          return (
-            <Link href={router.pathname + "/" + e.id_ticket}>
-              <a>
-                {e.asunto}
-                <br></br>
-              </a>
-            </Link>
-          );
-        })}
+      <div className="background-index p-0 m-0">
+        <h1 className="text-center m-5">Historial de solicitudes</h1>
+          <div className="text-center m-5 tableFixHead table-responsive-sm overflow-y">
+            <table className="table table-light table-borderless mx-auto ">
+              <thead className="">
+                <tr>
+                  <th>Asunto</th>
+                  <th>N# de la solicitud</th>
+                  <th>Última actualización</th>
+                  <th>Estado de solicitud</th>
+                </tr>
+              </thead>
+              <tbody>
+                    <tr className="table-group-divider"></tr>
+                    {tickets.map((e) => {
+                      return (
+                        <tr> 
+                          <td><a className="text-decoration-none link-primary" href={router.pathname + "/" + e.id_ticket} target="_self">{e.asunto}</a></td>
+                          <td>None</td>
+                          <td>None</td>
+                          <td>None</td>
+                        </tr>
+                      );
+                    })}
+              </tbody>
+            </table>
+          </div>
       </div>
     </div>
   );

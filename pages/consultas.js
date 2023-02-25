@@ -94,7 +94,7 @@ export default function Consultas({}) {
   return (
     <div>
       <Menu userRole={rol}></Menu>
-
+      <div className="background-index p-0 m-0">
       <>
         <div className="padding-selection">
           <h2 className="centrar-h2">Sube tu consulta</h2>
@@ -169,5 +169,6 @@ export default function Consultas({}) {
         </div>
       </>
     </div>
+  </div>
   );
 }

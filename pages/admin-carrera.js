@@ -86,6 +86,7 @@ export default function Carrera({carreras}){
     return (
         <div>
             <Menu userRole={data}></Menu>
+            <div className="background-index p-0 m-0">
             <div className='text-center pt-5'>
                 <button className="btn btn-dark"  onClick={() => setButtonPopup(true)}>Agregar Carrera</button>
             </div>
@@ -130,7 +131,7 @@ export default function Carrera({carreras}){
                     </tbody>
                 </table>
             </div>
-            
+            </div>
         </div>
         );
     }
