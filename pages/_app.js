@@ -9,14 +9,16 @@ import '../styles/mystyles.css';
 //import '../styles/table_style.css';
 import '../styles/Index_menu.css';
 import '../styles/chatbox.css';
-
-
-
+import {useEffect} from 'react';
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
-  const [supabaseClient] = useState(()=>createBrowserSupabaseClient());
+  const [supabaseClient] = useState(()=>
+  createBrowserSupabaseClient());
+  useEffect(() => {
+    document.body.classList.add('background-index');
 
+  }, []);
   return (
     <SessionContextProvider
       supabaseClient={supabaseClient}

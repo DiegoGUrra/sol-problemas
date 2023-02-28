@@ -54,10 +54,10 @@ export default function Historial() {
     <div>
       <Menu userRole={rol}></Menu>
       <div className="background-index p-0 m-0">
-        <h1 className="text-center m-5">Historial de solicitudes</h1>
-          <div className="text-center m-5 tableFixHead table-responsive-sm overflow-y">
-            <table className="table table-light table-borderless mx-auto ">
-              <thead className="">
+        <h1 className="text-center pt-5">Historial de solicitudes</h1>
+          <div className="text-center m-5 tableFixHead table-responsive-sm overflow-y" style={{borderRadius: "5px"}}>
+            <table className="table table-light table-borderless mx-auto " >
+              <thead>
                 <tr>
                   <th>Asunto</th>
                   <th>N# de la solicitud</th>

@@ -1,15 +1,19 @@
+body, html {
+    height: 100%;
+  }
+.background-index{
+    background-image: url("../public/background_index.png") ;  
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 div.background-index{
     background-image: url("../public/background_index.png") ;  
-    background-repeat: no-repeat;
+    height: 100%;
     background-position: center;
-    position: absolute;
-    background-attachment: fixed;
-    width: 100%;
-    height: 92.2vh;
+    background-repeat: no-repeat;
     background-size: cover;
-    padding-top: 3rem;
-
-
 }
 
 div.card_hover:hover {

@@ -173,7 +173,7 @@ export default function Usuarios({  }) {
     return (
         <div>
             <Menu userRole={data}></Menu>
-        <div className="background-index p-0 m-0">
+        <div>
             <div>
                 <div className='text-center pt-5'>
                     <button className="btn btn-dark" onClick={() => setButtonPopup(true)}>Añadir Usuario</button>

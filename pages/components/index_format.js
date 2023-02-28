@@ -8,7 +8,7 @@ export default function Index_menu(){
     return (
         <div>
             <div className="container-fluid background-index align-items-center">
-                <div className='row'>
+                <div className='row h-100'>
                     <div className='col-md'>
                         <div className="row justify-content-evenly">
                             <div className='col-lg-10'>

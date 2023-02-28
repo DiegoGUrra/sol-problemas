@@ -71,7 +71,7 @@ export default function Ticket({ mensajes, ticket }) {
             <div className="container py-5">
 
               <div className="row d-flex justify-content-center">
-                <div className="col-md-8 col-lg-6 col-xl-4">
+                <div className="col-md-8 col-lg-6 col-xl-7" style={{overflowY: "auto"}}>
 
                   <div className="card" id="chat1"  style={{borderRadius: "15px"}}>
                     <div
@@ -80,14 +80,17 @@ export default function Ticket({ mensajes, ticket }) {
                       <p className="mb-0 fw-bold">Mensajes de la solicitud</p>
                       <i className="fas fa-times"></i>
                     </div>
-                    <div className="card-body">
+                    <div className="card-body" style={{maxHeight: "500px", marginRight: "2px" ,marginTop: "5px",marginBottom: "7px",overflowY: "auto"}}>
 
                       {mensajes.map((e) => {
                         return (
                           <>
                             {e.id_usuario === user.id ?
                               <div className="d-flex flex-row justify-content-end mb-4">
-                                <div className="p-3 ms-3" style={{BorderRadius: "15px", Backgroundcolor: "black" }}>
+                                <img className="mt-3 rounded-circle" src={"/sample-avatar.jpg"}
+                                  alt="avatar 1" style={{width: "45px", height: "100%"}}></img>
+                                
+                                <div className="p-3 ms-3" style={{borderRadius: "15px", backgroundColor: "rgba(57, 192, 237,.2)", maxWidth: "300px" }}>
                                   <p>Yo</p>
                                   <p className="small mb-0">{"➣ " + e.mensaje}</p>
                                 </div>
@@ -106,10 +109,12 @@ export default function Ticket({ mensajes, ticket }) {
                               </div>
                               : <>
                                 <div className="d-flex flex-row justify-content-start mb-4">
-                                  <div className="ms-3" style={{BorderRadius: "15px", BackgroundColor: "black" }}>
+                                  <div className="p-3 ms-3" style={{borderRadius: "15px", backgroundColor: "rgba(57, 192, 237,.2)", maxWidth: "300px" }}>
                                     <p>Usuario</p>
                                     <p className="small text-secondary mb-0">{"➣ " + e.mensaje}</p>
                                   </div>
+                                  <img className="m-3 rounded-circle" src={"/sample-avatar.jpg"}
+                                alt="avatar 1" style={{width: "45px", height: "100%"}}></img>
                                 </div>
                               </>}
                           </>
@@ -125,7 +130,7 @@ export default function Ticket({ mensajes, ticket }) {
                     <div className="form-outline">
                       <p className="text-center">Redactar un nuevo mensaje:</p>
                       <form className="text-center" onSubmit={enviarMensaje}>
-                        <textarea className="textarea w-75" rows="4" onChange={(e) => setMensaje(e.target.value)}></textarea>
+                        <textarea maxlength="500" className="textarea w-75 h-50" rows="4" style={{resize: "none"}} onChange={(e) => setMensaje(e.target.value)}></textarea>
                         <div>
                           <button className="btn btn-primary" type="submit">Enviar mensaje</button>
                         </div>
