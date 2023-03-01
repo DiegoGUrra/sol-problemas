@@ -51,20 +51,6 @@ input.responsive-font{
     font-Size: 2.2vh;
 }
 
-body, html {
-  height: 100%;
-}
-
-div.background-login{
-    background-image: url("../public/background_login.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    position: absolute;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    background-size: cover;
-}
 
 div.height-card{
     min-height: 100vh;
