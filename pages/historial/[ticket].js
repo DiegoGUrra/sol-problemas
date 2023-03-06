@@ -73,7 +73,7 @@ export default function Ticket({ mensajes, ticket }) {
               <div className="row d-flex justify-content-center">
                 <div className="col-md-8 col-lg-6 col-xl-7" style={{overflowY: "auto"}}>
 
-                  <div className="card" id="chat1"  style={{borderRadius: "15px"}}>
+                  <div className="card" id="chat1" >
                     <div
                       className="card-header d-flex justify-content-between align-items-center p-3 bg-info text-white border-bottom-0">
                       <i className="fas fa-angle-left"></i>
@@ -87,13 +87,14 @@ export default function Ticket({ mensajes, ticket }) {
                           <>
                             {e.id_usuario === user.id ?
                               <div className="d-flex flex-row justify-content-end mb-4">
-                                <img className="mt-3 rounded-circle" src={"/sample-avatar.jpg"}
-                                  alt="avatar 1" style={{width: "45px", height: "100%"}}></img>
+                                
                                 
                                 <div className="p-3 ms-3" style={{borderRadius: "15px", backgroundColor: "rgba(57, 192, 237,.2)", maxWidth: "300px" }}>
                                   <p>Yo</p>
                                   <p className="small mb-0">{"➣ " + e.mensaje}</p>
                                 </div>
+                                <img className="ms-3 pt-2 rounded-circle" src={"/sample-avatar.jpg"}
+                                  alt="avatar 1" style={{width: "45px", height: "100%"}}></img>
                                               {/*<div className="card-header">
                                             <p>
                                                 <div>ID usuario: {e.id_usuario}</div> 
@@ -109,12 +110,13 @@ export default function Ticket({ mensajes, ticket }) {
                               </div>
                               : <>
                                 <div className="d-flex flex-row justify-content-start mb-4">
+                                  <img className="ms-1 mt-3 rounded-circle" src={"/sample-avatar.jpg"}
+                                alt="avatar 1" style={{width: "45px", height: "100%"}}></img>
                                   <div className="p-3 ms-3" style={{borderRadius: "15px", backgroundColor: "rgba(57, 192, 237,.2)", maxWidth: "300px" }}>
                                     <p>Usuario</p>
                                     <p className="small text-secondary mb-0">{"➣ " + e.mensaje}</p>
                                   </div>
-                                  <img className="m-3 rounded-circle" src={"/sample-avatar.jpg"}
-                                alt="avatar 1" style={{width: "45px", height: "100%"}}></img>
+                                  
                                 </div>
                               </>}
                           </>
